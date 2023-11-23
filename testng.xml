@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="D:/Intilij prjs/nopCommerce_automated">
+        <classes>
+            <class name="addToCart.AddToCartTest">
+                <methods>
+                    <include name="addCompProductToCart"/>
+                </methods>
+            </class>
+            <class name="login.LoginTests">
+                <methods>
+                    <include name="testSuccessfullyLogin"/>
+                </methods>
+            </class>
+            <class name="register.RegisterTest">
+                <methods>
+                    <include name="checkSuccessfullyRegister"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
