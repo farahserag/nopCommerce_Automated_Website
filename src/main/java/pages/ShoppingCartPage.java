@@ -2,20 +2,22 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CartPage {
+import java.time.Duration;
+
+public class ShoppingCartPage {
     private WebDriver driver;
-    public CartPage(WebDriver driver){this.driver = driver;}
-    private By cartTable = By.cssSelector(".cart");
-    private By termsOfService = By.id("termsofservice");
+    public ShoppingCartPage(WebDriver driver){this.driver = driver;}
     private By checkoutBtn = By.id("checkout");
-    public Boolean checkVisibilityOfCartTable(){
-        return driver.findElement(cartTable).isDisplayed();
-    }
+    private By termsOfService = By.id("termsofservice");
     public void acceptTermsOfService(){
         driver.findElement(termsOfService).click();
     }
     public CheckoutPage clickCheckOut(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutBtn));
         driver.findElement(checkoutBtn).click();
         return new CheckoutPage(driver);
     }
